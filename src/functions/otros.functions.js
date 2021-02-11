@@ -11,12 +11,6 @@ function crear_canal (msg) {
 
 
 
-function buscar_canal () {
-
-}
-
-
-
 function aviso_con_intervalo (intervalo_ms, client, id_canal) { // ms = 1000
     let aviso = setInterval(function () {
         let hora_francia = hora_actual()[1].hora.toString()
