@@ -60,10 +60,13 @@ function mensaje_dofus_multiple(cantidad, client) {
 
 
 
-function ver_ofrenda_fecha (msg, fecha, client, id_canal) {
+function ver_ofrenda_fecha (msg, fecha, client, id_canal, mensaje_emergente = '') {
     var datos
     ofrenda(fecha).then(resp => {datos = resp})
     setTimeout(() => {
+        if (mensaje_emergente.length > 0)
+            if (id_canal.length > 0)
+                client.channels.cache.get(id_canal).send(mensaje_emergente)
         if (id_canal.length > 0) {
             client.channels.cache.get(id_canal).send(mensaje_dofus(hora_actual()[1], datos[0], client))
             client.channels.cache.get(id_canal).send(mensaje_dofus(hora_actual()[1], datos[1], client))

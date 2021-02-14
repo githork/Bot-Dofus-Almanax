@@ -5,7 +5,7 @@ const fs = require('fs')
 
 require('dotenv').config()
 
-const {aviso_con_intervalo} = require('./src/functions/otros.functions.js')
+const {manejo_canales} = require('./src/functions/otros.functions.js')
 
 const prefijo = '-'
 var id_canal_principal = ''
@@ -24,8 +24,7 @@ for (const archivo of comandos) {
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`)
     // Avisos
-    aviso_con_intervalo(1000, client, client.channels.cache.find(channel => channel.name === 'general').id.toString()) // id channel : <especificar> ej. 809169718379282513
-
+    manejo_canales(client)
 })
 
 
